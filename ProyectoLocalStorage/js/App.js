@@ -1,3 +1,5 @@
+'use strict';
+
 let listaArticulos = [];
 
 const crearArticulo = (titulo, contenido) => {
@@ -5,7 +7,7 @@ const crearArticulo = (titulo, contenido) => {
         titulo,
         contenido
     }
-}
+};
 
 const agregarArticulo  = ( {titulo, contenido} ) => {
     const contenedor = document.getElementById('contenidoLista');
@@ -19,7 +21,7 @@ const agregarArticulo  = ( {titulo, contenido} ) => {
         </div>
     `;
     contenedor.appendChild(nuevoArticulo);
-}
+};
 
 const cargarArticulos = () => {
     listaArticulos = JSON.parse(window.localStorage.getItem('listaArticulos'));
@@ -28,11 +30,11 @@ const cargarArticulos = () => {
     listaArticulos.forEach(articulo => {
         agregarArticulo(articulo);
     });
-}
+};
 
 const guardarEnLocalStorage = (lista) => {
     localStorage.setItem('listaArticulos', JSON.stringify(lista));
-}
+};
 
 const hayInformacionGuardada = () => {
     if(localStorage.getItem('listaArticulos')) {
@@ -41,7 +43,7 @@ const hayInformacionGuardada = () => {
     else {
         return false;
     }
-}
+};
 
 window.onload = () => {
     console.log(hayInformacionGuardada());
@@ -51,7 +53,7 @@ window.onload = () => {
     else {
         console.log('No hay archivos en localStorage');
     }
-}
+};
 
 document.getElementById('formulario').addEventListener('submit', (e) => {
     const titulo = document.getElementById('txtTitulo').value;

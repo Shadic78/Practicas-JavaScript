@@ -1,3 +1,5 @@
+'use strict';
+
 const guardar = () => {
     // Probando guardar un objeto en localStorage
     const texto = document.getElementById('texto').value;
@@ -7,7 +9,7 @@ const guardar = () => {
     }
     localStorage.setItem('cadena', texto);
     localStorage.setItem('objeto', JSON.stringify(obj));
-}
+};
 
 const leer = () => {
     // Probando recuperar un objeto de localStorage
@@ -17,4 +19,4 @@ const leer = () => {
     console.log(objeto);
     console.log('LocalStorage: ');
     console.log(localStorage);
-}
+};

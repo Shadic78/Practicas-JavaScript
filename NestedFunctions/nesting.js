@@ -1,3 +1,5 @@
+'use strict';
+
 const nest = (var1) => {
     const data1 = var1;
     return var2 => {
@@ -18,7 +20,7 @@ const nest = (var1) => {
             }
         }
     }
-}
+};
 
 let test1 = nest('First');
 test1 = test1('Second');
