@@ -6,7 +6,7 @@ const crearArticulo = (titulo, contenido) => {
     return {
         titulo,
         contenido
-    }
+    };
 };
 
 const agregarArticulo  = ( {titulo, contenido} ) => {

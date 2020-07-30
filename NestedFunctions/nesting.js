@@ -2,12 +2,16 @@
 
 const nest = (var1) => {
     const data1 = var1;
+
     return var2 => {
         const data2 = var2;
+
         return var3 => {
             const data3 = var3;
+
             return var4 => {
                 const data4 = var4;
+
                 return {
                     data1, 
                     data2,
@@ -16,10 +20,10 @@ const nest = (var1) => {
                     print: () => {
                         return `Nesting:\ndata1: ${data1}\ndata2: ${data2}\ndata3: ${data3}\ndata4: ${data4}`;
                     }
-                }
-            }
-        }
-    }
+                };
+            };
+        };
+    };
 };
 
 let test1 = nest('First');
