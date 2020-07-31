@@ -12,10 +12,11 @@ const crearArticulo = (titulo, contenido) => {
 const agregarArticulo  = ( {titulo, contenido} ) => {
     const contenedor = document.getElementById('contenidoLista');
     const nuevoArticulo = document.createElement('div');
+    nuevoArticulo.className = 'col-12 col-md-6 mb-4';
     nuevoArticulo.innerHTML = `
-        <div class="card mb-4">
+        <div class="card">
             <div class="card-body">
-                <strong>Titulo: </strong>${titulo}
+                <strong>Titulo: </strong>${titulo}<br />
                 <strong>Contenido:</strong>${contenido}
             </div>
         </div>
