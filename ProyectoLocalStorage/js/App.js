@@ -15,9 +15,16 @@ const agregarArticulo  = ( {titulo, contenido} ) => {
     nuevoArticulo.className = 'col-12 col-md-6 mb-4';
     nuevoArticulo.innerHTML = `
         <div class="card">
-            <div class="card-body">
-                <strong>Titulo: </strong>${titulo}<br />
-                <strong>Contenido:</strong>${contenido}
+        <div class="modal-header bg-light">
+            <span>${titulo}</span>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+            <div class="card-body">   
+                <p class="card-text">
+                    ${contenido}                
+                </p>
             </div>
         </div>
     `;
