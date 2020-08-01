@@ -2,10 +2,9 @@
 import {crearArticulo, agregarArticulo, eliminarArticulo, cargarArticulos} from './Articulos.js';
 import {guardarEnLocalStorage, hayInformacionGuardada} from './Almacenamiento.js';
 
-let listaArticulos = [];
+export let listaArticulos = [];
 
 window.onload = () => {
-    console.log(hayInformacionGuardada());
     if(hayInformacionGuardada()) {
         listaArticulos = cargarArticulos();
     }
@@ -15,7 +14,7 @@ window.onload = () => {
 };
 
 document.getElementById('formulario').addEventListener('submit', (e) => {
-    const titulo = document.getElementById('txtTitulo').value;
+    const titulo = document.getElementById('txtTitulo').value.trim();
     const contenido = document.getElementById('txtContenido').value;
     const articulo = crearArticulo(titulo, contenido);
 
@@ -24,22 +23,6 @@ document.getElementById('formulario').addEventListener('submit', (e) => {
 
     guardarEnLocalStorage(listaArticulos);
 
+    document.getElementById('formulario').reset();
     e.preventDefault();
-});
-
-document.getElementById('contenidoLista').addEventListener('click', (e) => {
-    const elemento = e.target;
-
-    if(elemento.name === 'deleteBtn') {
-        const tituloArt = elemento.parentElement.parentElement.firstElementChild.innerText;
-        console.log(tituloArt);
-        listaArticulos = eliminarArticulo(tituloArt, listaArticulos);
-        console.log('titulo: ', tituloArt);
-        console.log(listaArticulos);
-
-        guardarEnLocalStorage(listaArticulos);
-
-        // Eliminar la carta del documento
-        elemento.parentElement.parentElement.parentElement.parentElement.remove();
-    }
 });
